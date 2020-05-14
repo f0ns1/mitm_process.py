@@ -1,11 +1,12 @@
 ## MITM Manage packets 
 
-Tha python program manage inbound traffic for traget ip server to the router server that forward by our host.
+That python program manage inbound traffic from target ip server to the router forwarding by mitm host.
 
-For  make this task the application use commadn system Ipetables and netfilterqueue of python.
+For  make this task the application use OS command system Iptables and netfilterqueue of python.
 
 Itables at the init of the program enable NFQUEUE on local inbound traffic and python library consume all packets 
-like a virtual fw/proxy/balancer  or other... In that case has option to modify the packet and accept or drop it.
+like a virtual fw/proxy/balancer  or other... 
+In that case the interceptor has option of modify the packet before accept or drop it.
 
 # How to use
 
