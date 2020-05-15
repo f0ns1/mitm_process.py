@@ -1,4 +1,4 @@
-## DNS Spoofing Attack under MitM envornment
+## DNS Spoofing Attack under MitM environment
 
 For use this tool you must work under MitM environment, in taht case,
 on the one hand we posioned the target_ip(victim) with our mac addres instead of 
