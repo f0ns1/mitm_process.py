@@ -2,11 +2,12 @@
 import netfilterqueue
 import subprocess
 import optparse
-
+import scapy.all as scapy
 
 def process_packet(packet):
     print(packet)
     packet.accept()
+
 
 def deny_packet(packet):
     print(packet)
@@ -29,7 +30,8 @@ options=get_arguments()
 traffic= options.traffic
 print("[*] Traffic type = "+traffic)
 print("Enable Iptables queue for input target packets ... on queue number 0")
-subprocess.check_output(["iptables", "-I", "FORWARD", "-j", "NFQUEUE", "--queue-num", options.queue])
+subprocess.check_output(["iptables", "-I", "OUTPUT", "-j", "NFQUEUE", "--queue-num", options.queue])
+subprocess.check_output(["iptables", "-I", "INPUT", "-j", "NFQUEUE", "--queue-num", options.queue])
 queue = netfilterqueue.NetfilterQueue()
 if traffic == "Allow":
     queue.bind(int(options.queue), process_packet)
