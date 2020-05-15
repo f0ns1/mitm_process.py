@@ -4,7 +4,7 @@ import netfilterqueue
 import scapy.all as scapy
 
 ack_list = []
-extension ="zip"
+extension =".png"
 
 
 def process_packet(packet):
